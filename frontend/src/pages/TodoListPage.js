@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 
 
 function TodoListPage() {
@@ -21,7 +22,9 @@ function TodoListPage() {
     <div>
       <div className='todos-list'>
         {todos && todos.map((todo, index) => (
+           <Link to={`/todo/${todo.id}`}>
           <h3 key={index}>{`${todo.name} - ${todo.description} - ${todo.state}`}</h3>
+          </Link>
 
         ))
         }
