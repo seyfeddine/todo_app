@@ -17,13 +17,15 @@ import NotfoundPage from "./pages/NotfoundPage";
 function App() {
   return (
     <Router>
-    <div className="App">
+    <div className="container dark">
+      <div className="app">
       <Header></Header> 
       <Routes>
       <Route path="/" exact element={<TodoListPage/>}></Route> /* we specify exact to no render with each route , it will be true all the time */
       <Route path="/todo/:id" element={<TodoPage/>}></Route>
       <Route path="*" element={<NotfoundPage/>}></Route>
       </Routes>
+      </div>
     </div>
     </Router>
   );

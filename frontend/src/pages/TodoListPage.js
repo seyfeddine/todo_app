@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import ListItem from '../componenets/ListItems'
 
 
 function TodoListPage() {
@@ -19,13 +20,14 @@ function TodoListPage() {
   }
 
   return (
-    <div>
+    <div className='notes'>
+      <div className='notes-header'>
+        <h2 className='notes-title'>&#9782; To Do</h2>
+        <p className='notes-count'>{todos.length}</p>
+      </div>
       <div className='todos-list'>
         {todos && todos.map((todo, index) => (
-           <Link to={`/todo/${todo.id}`}>
-          <h3 key={index}>{`${todo.name} - ${todo.description} - ${todo.state}`}</h3>
-          </Link>
-
+           <ListItem key={index} todo={todo}/>
         ))
         }
       </div>
