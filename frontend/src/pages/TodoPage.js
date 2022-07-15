@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { ReactComponent as BackArrow } from '../assets/back_arrow.svg'
 
 const TodoPage = () => {
 
@@ -20,8 +21,15 @@ const TodoPage = () => {
 
 
   return (
-    <div>
-        <h1>{todo?.name}</h1> 
+    <div className='note'>
+      <div className='note-header'>
+      <h3>
+        <Link to="/">
+        <BackArrow/>
+        </Link>
+      </h3>
+      </div>
+        <textarea defaultValue={todo?.name}></textarea> 
     </div>
   )
 }

@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
         <div className="notes-list-item">
         <h3> {todo.name} {todo.description} {todo.state}</h3>
         </div>
-     
      </Link>
    )
  }
