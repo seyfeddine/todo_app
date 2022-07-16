@@ -19,17 +19,32 @@ const TodoPage = () => {
     setTodo(data)
   }
 
+  let updateTodo = async () => {
+      fetch(`/todos/${id}`,{
+        method:"PUT",
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(todo)
+      })
+  }
+
+  let handleSubmit = () => {
+    updateTodo()
+  }
+
+  
 
   return (
     <div className='note'>
       <div className='note-header'>
       <h3>
         <Link to="/">
-        <BackArrow/>
+        <BackArrow onClick={handleSubmit}/>
         </Link>
       </h3>
       </div>
-        <textarea defaultValue={todo?.name}></textarea> 
+        <textarea onChange={(a) => {setTodo({...todo,'description':a.target.value})}} defaultValue={todo?.description}></textarea> 
     </div>
   )
 }
