@@ -29,6 +29,17 @@ const TodoPage = () => {
       })
   }
 
+
+  let deleteTodo = async () => {
+    fetch(`/todos/${id}`,{
+      method:"DELETE",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(todo)
+    })
+  }
+
   let handleSubmit = () => {
     updateTodo()
   }
@@ -43,6 +54,9 @@ const TodoPage = () => {
         <BackArrow onClick={handleSubmit}/>
         </Link>
       </h3>
+      <Link to="/">
+      <button onClick={deleteTodo}>Delete</button>
+      </Link>
       </div>
         <textarea onChange={(a) => {setTodo({...todo,'description':a.target.value})}} defaultValue={todo?.description}></textarea> 
     </div>
