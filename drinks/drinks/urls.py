@@ -18,10 +18,12 @@ from django.urls import path
 from .views import todo_list, todo_detail
 from rest_framework.urlpatterns import format_suffix_patterns 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todos/', todo_list),
     path('todos/<int:id>',todo_detail)
+    
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
